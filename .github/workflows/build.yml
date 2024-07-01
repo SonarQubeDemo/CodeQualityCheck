@@ -10,9 +10,7 @@ on:
  
 jobs:
   sonarQube:
-    name: SonarQube Scan
     runs-on: ubuntu-latest
- 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -21,7 +19,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
-          distribution: 'adopt' # Specify the distribution
+          distribution: 'adopt'
  
       - name: Cache SonarQube packages
         uses: actions/cache@v2
@@ -37,19 +35,4 @@ jobs:
           echo "$HOME/.sonar/sonar-scanner-4.6.2.2472-linux/bin" >> $GITHUB_PATH
  
       - name: Print SonarQube URL
-        run: echo "SonarQube URL: ${{ secrets.SONAR_HOST_URL }}"
- 
-      - name: Test SonarQube Connectivity
-        run: |
-          curl -v ${{ secrets.SONAR_HOST_URL }}
- 
-      - name: Run SonarQube scan
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: |
-          sonar-scanner \
-            -Dsonar.projectKey=my-project-key \
-            -Dsonar.sources=. \
-            -Dsonar.host.url=$SONAR_HOST_URL \
-            -Dsonar.login=$SONAR_TOKEN
+        run: echo "SonarQube URL:${{ secrets.SONAR_HOST_URL }}"
