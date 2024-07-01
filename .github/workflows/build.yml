@@ -17,11 +17,6 @@ jobs:
         java-version: '11'
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
-      with:
-        projectBaseDir: .
-        args: >
-          -Dsonar.organization=SonarQubeDemo
-          -Dsonar.projectKey=SonarQubeDemo_CodeQualityCheck_8754f4b7-ec30-4fcb-9dc9-9dc040e9b7a8
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
