@@ -36,6 +36,13 @@ jobs:
           unzip /tmp/sonar-scanner-cli.zip -d $HOME/.sonar
           echo "$HOME/.sonar/sonar-scanner-4.6.2.2472-linux/bin" >> $GITHUB_PATH
  
+      - name: Print SonarQube URL
+        run: echo "SonarQube URL: ${{ secrets.SONAR_HOST_URL }}"
+ 
+      - name: Test SonarQube Connectivity
+        run: |
+          curl -v ${{ secrets.SONAR_HOST_URL }}
+ 
       - name: Run SonarQube scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
