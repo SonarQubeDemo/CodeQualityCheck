@@ -38,6 +38,13 @@ jobs:
         run: echo "SonarQube URL:${{ secrets.SONAR_HOST_URL }}"
  
       - name: Test SonarQube Connectivity
+        run: curl -v ${{ secrets.SONAR_HOST_URL }}
+ 
+      - name: Start SonarQube Server
         run: |
-          curl -v ${{ secrets.SONAR_HOST_URL }}
+          # Replace with actual command to start SonarQube server
+          cd /opt/sonarqube
+          ./bin/sonar.sh start
+        # Ensure SonarQube server is started before proceeding
+        timeout-minutes: 5
  
