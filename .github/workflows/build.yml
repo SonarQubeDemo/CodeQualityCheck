@@ -37,9 +37,6 @@ jobs:
       - name: Print SonarQube URL
         run: echo "SonarQube URL:${{ secrets.SONAR_HOST_URL }}"
  
-      - name: Test SonarQube Connectivity
-        run: curl -v ${{ secrets.SONAR_HOST_URL }}
- 
       - name: Start SonarQube Server
         run: |
           # Replace with actual command to start SonarQube server
