@@ -39,9 +39,7 @@ jobs:
  
       - name: Start SonarQube Server
         run: |
-          # Replace with actual command to start SonarQube server
-          cd /opt/sonarqube
-          ./bin/sonar.sh start
+          C:\SonarQubeEnterPrice\sonarqube-10.6.0.92116\bin\windows-x86-64\StartSonar.bat
         # Ensure SonarQube server is started before proceeding
         timeout-minutes: 5
  
