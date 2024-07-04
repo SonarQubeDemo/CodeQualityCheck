@@ -2,7 +2,7 @@ name: CI/CD workflow for Maven Build and Sonar Code scan
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
         projectBaseDir: .
         args: >
           -Dsonar.organization=SonarQubeDemo
-          -Dsonar.projectKey=SonarQubeDemo_CodeQualityCheck_fc7afb30-d70f-4d4f-91a5-1760e948c1bf
+          -Dsonar.projectKey=SonarQubeDemo_CodeQualityCheck_0153f3d8-8d3b-400f-8ff0-33b89b5ef992
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
